@@ -1,0 +1,24 @@
+
+<br>
+<button nz-button nzType="default" (click)="login()" *ngIf="!isLoggedIn">Đăng nhập</button>
+
+<br>
+<button nz-button nzType="default" (click)="logout()" *ngIf="isLoggedIn">Đăng xuất</button>
+
+<h2>Các action (test) của một api user</h2>
+<br>
+<button nz-button nzType="primary" has-permission [audience]="'app-photoz'" [resourceName]="'UserResource'" [resourceScope]="['create']" [authorizations]="permissions" >Create action</button>
+<br><br>
+<button nz-button nzType="default" style="background: lightgreen" *ngIf="isLoggedIn" has-permission [audience]="'app-photoz'" [resourceName]="'UserResource'" [resourceScope]="['edit']" [authorizations]="permissions">Edit action</button>
+<br><br>
+<button nz-button nzType="primary" nzDanger *ngIf="isLoggedIn" has-permission [audience]="'app-photoz'" [resourceName]="'UserResource'" [resourceScope]="['delete']" [authorizations]="permissions">Delete action</button>
+<br><br>
+<button nz-button nzType="default" *ngIf="isLoggedIn"  has-permission [audience]="'app-photoz'" [resourceName]="'UserResource'" [resourceScope]="['view']" [authorizations]="permissions">View action</button>
+<br><br>
+
+
+
+<textarea rows="4" nz-input [(ngModel)]="tokenValue"></textarea>
+
+<br><br>
+<button nz-button nzType="default" (click)="getToken()">Get Token</button>
