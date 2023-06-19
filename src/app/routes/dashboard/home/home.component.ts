@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {KeycloakService} from "keycloak-angular";
 import {ActivatedRoute} from "@angular/router";
 import {AuthorizationData} from "../../../core/guard/authorization.data";
-import {firstValueFrom, Observable} from "rxjs";
+import {firstValueFrom} from "rxjs";
 
 
 @Component({
@@ -35,5 +35,11 @@ export class HomeComponent implements OnInit{
 
   async getToken() {
     this.tokenValue = await this.keycloakService.getToken();
+  }
+
+  checkIsLoggedIn() {
+    this.keycloakService.isLoggedIn().then(value => {
+      console.log("isloggedIn: ", value)
+    })
   }
 }
